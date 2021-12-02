@@ -4,7 +4,7 @@ class WallServiceTest {
 
     @org.junit.Test
     fun add() {
-        val service = WallService
+        val service = WallService()
         val expected = service.getLastPostId() + 1
         service.add(post = Post())
         assertEquals(expected, service.getLastPostId())
@@ -12,7 +12,7 @@ class WallServiceTest {
 
     @org.junit.Test
     fun updateExisting() {
-        val service = WallService
+        val service = WallService()
         service.add(Post(text = "Текст 1"))
         service.add(Post(text = "Текст 2"))
         service.add(Post(text = "Текст 3"))
@@ -25,7 +25,7 @@ class WallServiceTest {
 
     @org.junit.Test
     fun updateNotExisting() {
-        val service = WallService
+        val service = WallService()
         service.add(Post(text = "Текст 1"))
         service.add(Post(text = "Текст 2"))
         service.add(Post(text = "Текст 3"))

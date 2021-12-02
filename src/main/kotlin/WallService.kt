@@ -1,4 +1,4 @@
-object WallService {
+class WallService {
     var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
@@ -9,7 +9,7 @@ object WallService {
     }
 
     fun update(post: Post): Boolean {
-        for((index, somePost) in posts.withIndex()) {
+        for ((index, somePost) in posts.withIndex()) {
             if (somePost.id == post.id) {
                 posts[index] = post.copy(ownerId = somePost.ownerId, date = somePost.date)
                 return true
@@ -19,4 +19,13 @@ object WallService {
     }
 
     fun getLastPostId(): Int = if (posts.isEmpty()) 0 else posts.last().id
+
+    fun findPostById(id: Int): Post? {
+        for ((index, currentPost) in posts.withIndex()) {
+            if (currentPost.id == id) {
+                return posts[index]
+            }
+        }
+        return null
+    }
 }
