@@ -9,6 +9,7 @@ object WallServiceMain {
 fun main() {
 
     val attachment: Attachment = AttachmentLink(
+
         attachmentContent = Link(
             url = "www.netology.ru", title = "Курсы языка Kotlin", "", "",
             product = LinkProduct(
