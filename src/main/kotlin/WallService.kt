@@ -1,5 +1,26 @@
+class PostNotFoundException(message: String) : RuntimeException(message)
 class WallService {
-    var posts = emptyArray<Post>()
+    private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(comment: Comment) {
+        for (anyPost in posts) {
+            if (anyPost.id == comment.postId) {
+                comments += comment
+            } else throw PostNotFoundException("there is no such post")
+
+        }
+    }
+
+    fun getPostComments(post: Post): String {
+        var commentsString = ""
+        for (comment in comments) {
+            if (comment.replyToComment == post.id) {
+                commentsString += comment.message
+            }
+        }
+        return commentsString
+    }
 
     fun add(post: Post): Post {
         posts += if (posts.isEmpty()) {

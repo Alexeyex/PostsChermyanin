@@ -6,6 +6,7 @@ import java.time.ZoneOffset
 object WallServiceMain {
     val service = WallService()
 }
+
 fun main() {
 
     val attachment: Attachment = AttachmentLink(

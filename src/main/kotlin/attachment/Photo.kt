@@ -13,7 +13,7 @@ data class Photo(
 )
 
 data class PhotoCopy(
-    val type : String,
+    val type: String,
     val url: String,
     val width: Int,
     val height: Int
