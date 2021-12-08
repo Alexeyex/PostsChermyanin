@@ -7,9 +7,10 @@ class WallService {
         for (anyPost in posts) {
             if (anyPost.id == comment.postId) {
                 comments += comment
-            } else throw PostNotFoundException("there is no such post")
+            }
 
         }
+        throw PostNotFoundException("there is no such post")
     }
 
     fun getPostComments(post: Post): String {
